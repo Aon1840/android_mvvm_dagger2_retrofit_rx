@@ -3,10 +3,10 @@ package com.bearman.android_mvvm_dagger2_retrofit_rx.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bearman.android_mvvm_dagger2_retrofit_rx.R
 import com.bearman.android_mvvm_dagger2_retrofit_rx.model.Country
+import kotlinx.android.synthetic.main.item_country.view.*
 
 class CountryListAdapter(
     var countries: ArrayList<Country>
@@ -34,10 +34,8 @@ class CountryListAdapter(
 
     class CountryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        private val countryName: TextView = view.findViewById(R.id.tvName)
-
         fun bind(country: Country) {
-            countryName.text = country.countryName
+            itemView.rootView.tvName.text = country.countryName
         }
     }
 }
