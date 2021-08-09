@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     private fun observeViewModel() {
         viewModel.countries.observe(this, Observer { countries ->
             countries?.let {
+                rvCountries.visibility = View.VISIBLE
                 countryListAdapter.updateCountries(it)
             }
         })
