@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bearman.android_mvvm_dagger2_retrofit_rx.R
 import com.bearman.android_mvvm_dagger2_retrofit_rx.model.Country
+import com.bearman.android_mvvm_dagger2_retrofit_rx.utils.getProgressDrawable
+import com.bearman.android_mvvm_dagger2_retrofit_rx.utils.loadImage
 import kotlinx.android.synthetic.main.item_country.view.*
 
 class CountryListAdapter(
@@ -35,7 +37,11 @@ class CountryListAdapter(
     class CountryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(country: Country) {
-            itemView.rootView.tvName.text = country.countryName
+            itemView.rootView.apply {
+                ivCountry.loadImage(country.flag, getProgressDrawable(context))
+                tvName.text = country.countryName
+                tvCapital.text = country.capital
+            }
         }
     }
 }
