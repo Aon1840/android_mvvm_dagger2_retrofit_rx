@@ -2,6 +2,7 @@ package com.bearman.android_mvvm_dagger2_retrofit_rx.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.bearman.android_mvvm_dagger2_retrofit_rx.di.DaggerApiComponent
 import com.bearman.android_mvvm_dagger2_retrofit_rx.model.CountriesService
 import com.bearman.android_mvvm_dagger2_retrofit_rx.model.Country
 import io.reactivex.Scheduler
@@ -9,13 +10,21 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
 class ListViewModel : ViewModel() {
-    private val countriesService = CountriesService()
+
+    @Inject
+    lateinit var countriesService: CountriesService
+
     private val disposable = CompositeDisposable()
     val countries = MutableLiveData<List<Country>>()
     val countryLoadError = MutableLiveData<Boolean>()
     val loading = MutableLiveData<Boolean>()
+
+    init {
+        DaggerApiComponent.create().inject(this)
+    }
 
     fun refresh() {
         fetchCountries()
