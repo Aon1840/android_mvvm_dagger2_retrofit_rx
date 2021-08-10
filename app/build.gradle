@@ -72,7 +72,7 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$lifeCycleExtensionsVersion"
 
     testImplementation 'junit:junit:4.+'
-    testImplementation "org.mockito:mockito-iniline:$mockitoVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
     testImplementation 'android.arch.core:core-testing:1.1.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
