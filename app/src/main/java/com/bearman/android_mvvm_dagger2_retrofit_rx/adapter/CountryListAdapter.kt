@@ -8,7 +8,9 @@ import com.bearman.android_mvvm_dagger2_retrofit_rx.R
 import com.bearman.android_mvvm_dagger2_retrofit_rx.model.Country
 import com.bearman.android_mvvm_dagger2_retrofit_rx.utils.getProgressDrawable
 import com.bearman.android_mvvm_dagger2_retrofit_rx.utils.loadImage
-import kotlinx.android.synthetic.main.item_country.view.*
+import kotlinx.android.synthetic.main.item_country.view.ivCountry
+import kotlinx.android.synthetic.main.item_country.view.tvName
+import kotlinx.android.synthetic.main.item_country.view.tvCapital
 
 class CountryListAdapter(
     var countries: ArrayList<Country>
